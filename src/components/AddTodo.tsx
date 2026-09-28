@@ -22,9 +22,8 @@ export function AddTodo({ onAdd }: AddTodoProps) {
     setValue("");
     setError("");
   };
-
   return (
-    <div className="flex gap-2">
+    <div className="flex w-full gap-2">
       <input
         type="text"
         value={value}
@@ -39,18 +38,16 @@ export function AddTodo({ onAdd }: AddTodoProps) {
         aria-label="New todo"
         aria-invalid={!!error}
         aria-describedby={error ? "add-todo-error" : undefined}
-        className="flex-1 rounded-lg border border-[var(--border)] bg-[var(--bg)] px-4 py-3 text-[var(--text)] placeholder:text-[var(--muted)] focus:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/30"
+        className="min-w-0 flex-1 rounded-lg border border-[var(--border)] bg-[var(--bg)] px-4 py-3 text-[var(--text)] placeholder:text-[var(--muted)] focus:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/30"
       />
-      <div className="flex flex-col gap-2 sm:flex-row">
-        <button
-          type="button"
-          onClick={submit}
-          aria-label="Add todo"
-          className="w-full rounded-lg bg-[var(--accent)] px-5 py-3 font-medium text-white hover:bg-[var(--accent-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]/40 sm:w-auto"
-        >
-          Add
-        </button>
-      </div>
+      <button
+        type="button"
+        onClick={submit}
+        aria-label="Add todo"
+        className="shrink-0 rounded-lg bg-[var(--accent)] px-4 py-3 font-medium text-white hover:bg-[var(--accent-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]/40 sm:px-5"
+      >
+        Add
+      </button>
       {error && (
         <p id="add-todo-error" className="sr-only" role="alert">
           {error}
