@@ -41,14 +41,16 @@ export function AddTodo({ onAdd }: AddTodoProps) {
         aria-describedby={error ? "add-todo-error" : undefined}
         className="flex-1 rounded-lg border border-[var(--border)] bg-[var(--bg)] px-4 py-3 text-[var(--text)] placeholder:text-[var(--muted)] focus:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/30"
       />
-      <button
-        type="button"
-        onClick={submit}
-        aria-label="Add todo"
-        className="rounded-lg bg-[var(--accent)] px-5 py-3 font-medium text-white hover:bg-[var(--accent-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]/40"
-      >
-        Add
-      </button>
+      <div className="flex flex-col gap-2 sm:flex-row">
+        <button
+          type="button"
+          onClick={submit}
+          aria-label="Add todo"
+          className="w-full rounded-lg bg-[var(--accent)] px-5 py-3 font-medium text-white hover:bg-[var(--accent-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]/40 sm:w-auto"
+        >
+          Add
+        </button>
+      </div>
       {error && (
         <p id="add-todo-error" className="sr-only" role="alert">
           {error}
